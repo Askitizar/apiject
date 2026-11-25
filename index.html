@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meal Explorer — Кулинарный справочник</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <h1>🍳 Meal Explorer</h1>
+      <p class="subtitle">Поиск рецептов мира, ингредиентов и сохранение в кулинарную книгу</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="controls" aria-label="Фильтры и поиск">
+      <div class="control-group">
+        <label for="search-input">Поиск блюда (на англ.)</label>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Например: Pasta, Chicken, Cake..." 
+          maxlength="50"
+        />
+      </div>
+
+      <div class="control-group">
+        <label for="category-select">Категория</label>
+        <select id="category-select">
+          <option value="all">Все категории</option>
+          <option value="Beef">Говядина (Beef)</option>
+          <option value="Chicken">Курица (Chicken)</option>
+          <option value="Dessert">Десерты (Dessert)</option>
+          <option value="Pasta">Паста (Pasta)</option>
+          <option value="Seafood">Морепродукты (Seafood)</option>
+          <option value="Vegetarian">Вегетарианское (Vegetarian)</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="sort-select">Сортировка</label>
+        <select id="sort-select">
+          <option value="name-asc">По названию (А–Я)</option>
+          <option value="name-desc">По названию (Я–А)</option>
+        </select>
+      </div>
+
+      <div class="control-group control-group--actions">
+        <button type="button" id="favorites-toggle" class="btn btn--secondary">
+          ★ Избранное (<span id="fav-count">0</span>)
+        </button>
+        <button type="button" id="reset-btn" class="btn btn--outline">Сбросить</button>
+      </div>
+    </section>
+
+    <div id="status-box" class="status-box" role="status" aria-live="polite"></div>
+    <section id="meals-grid" class="grid" aria-label="Список рецептов"></section>
+  </main>
+
+  <dialog id="meal-modal" class="modal">
+    <div class="modal__content">
+      <button type="button" id="close-modal" class="modal__close" aria-label="Закрыть окно">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </dialog>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
